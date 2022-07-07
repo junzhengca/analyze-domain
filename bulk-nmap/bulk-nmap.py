@@ -6,7 +6,7 @@ import random
 import subprocess
 
 RESULTS_PATH = './results'
-NUM_THREADS = 8
+NUM_THREADS = 32
 
 if not os.path.isdir(RESULTS_PATH):
     print('Cannot find results directory, creating at', RESULTS_PATH)
@@ -42,7 +42,7 @@ class NmapThread(threading.Thread):
             completed_domains.append(next_domain)
             thread_lock.release()
             print(f'Thread {self.id} processing {next_domain}, ({len(completed_domains)}/{total_domains})')
-            result = subprocess.run(["nmap", "-sT", "--top-ports", "1000", "-Pn", next_domain], capture_output=True, encoding='utf-8')
+            result = subprocess.run(["nmap", "-sT", "-p-", "-Pn", next_domain], capture_output=True, encoding='utf-8')
             output_path = os.path.join(RESULTS_PATH, f'{next_domain}.result')
             with open(output_path, 'w') as output_file:
                 output_file.write(result.stdout)
