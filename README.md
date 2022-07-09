@@ -1,2 +1,22 @@
-# sec-tools
-My personal tools for security research.
+# analyze-domain
+
+A simple tool to automate the process of analyzing any given domain name. Very useful during the recon / enumeration stage.
+
+**_Obviously, do NOT use this tool on any hosts that you are not legally allowed to use. There is minimal risk, but bruteforce style enumeration is still used._**
+
+## What will this tool do?
+
+Right now, this tool does some very simple things.
+
+* First, it will bruteforce subdomains using `amass`
+* Then `nslookup` is used to obtain all IP addresses
+* `nmap` is then run to check for any open ports on all IPs
+* IPs are then correlated back to subdomains to generate the final JSON file
+
+## Prerequisites
+
+You will need to install `amass`, `nslookup` and `nmap`.
+
+## Notes
+
+You probably want to run this tool on some sort of cloud infrastructure. It takes a long time, and residential internet is generally not as stable.
