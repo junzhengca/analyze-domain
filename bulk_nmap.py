@@ -16,15 +16,15 @@ class NmapThread(threading.Thread):
         while True:
             self.lock.acquire()
             if len(self.queue) == 0:
-                print(f'Thread {self.id} has no more jobs, exiting...')
                 self.lock.release()
                 return
             next_host = self.queue.pop(0)
             self.lock.release()
-            print(f'Thread {self.id} processing {next_host}')
+            print(f'Pocessing {next_host}')
             result = subprocess.run([
                 "nmap",
                 "-sT",
+                "-p-",
                 "-Pn",
                 next_host
             ], capture_output=True, encoding='utf-8')
@@ -35,13 +35,13 @@ class NmapThread(threading.Thread):
             for line in result:
                 if re.match("^[0-9]+.*$", line):
                     line = re.split("\s+", line)
-                    print(next_host, line)
                     self.results[next_host].append({
                         'port': line[0],
                         'status': line[1],
                         'service': line[2],
                     })
             self.lock.release()
+            print(f'Finished processing {next_host}')
 
 def get_nmap_results(ips):
     queue = ips[:]
