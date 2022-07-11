@@ -15,7 +15,16 @@ Right now, this tool does some very simple things.
 
 ## Prerequisites
 
-You will need to install `amass`, `nslookup` and `nmap`.
+You will need to install `amass`, `nslookup` and `nmap`. If you are using something like Kali or Parrot Security, these tools should be preinstalled.
+
+You will need Python 3.
+
+## Running
+
+```json
+# For example: python3 analyze_domain.py junzheng.dev junzheng.dev.result.json
+python3 analyze_domain.py <DOMAIN> <OUTPUT_FILE>
+```
 
 ## Notes
 
