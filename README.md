@@ -26,6 +26,12 @@ You will need Python 3.
 python3 analyze_domain.py <DOMAIN> <OUTPUT_FILE>
 ```
 
+There is also a nice visualization tool that parses the JSON file and prints out everything in a nice format
+
+```bash
+python3 visualize.py <JSON_FILE>
+```
+
 ## Notes
 
 You probably want to run this tool on some sort of cloud infrastructure. It takes a long time, and residential internet is generally not as stable.
