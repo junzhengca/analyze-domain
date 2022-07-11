@@ -35,3 +35,5 @@ python3 visualize.py <JSON_FILE>
 ## Notes
 
 You probably want to run this tool on some sort of cloud infrastructure if you know your target is large. It takes a long time, and residential internet is generally not as stable.
+
+By default, `nmap` scans will utilize 32 threads since it is very I/O bound, you can always modify this behaviour by changing `analyze_domain.py`.
