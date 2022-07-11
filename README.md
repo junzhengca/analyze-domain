@@ -21,7 +21,7 @@ You will need Python 3.
 
 ## Running
 
-```json
+```bash
 # For example: python3 analyze_domain.py junzheng.dev junzheng.dev.result.json
 python3 analyze_domain.py <DOMAIN> <OUTPUT_FILE>
 ```
