@@ -34,4 +34,4 @@ python3 visualize.py <JSON_FILE>
 
 ## Notes
 
-You probably want to run this tool on some sort of cloud infrastructure. It takes a long time, and residential internet is generally not as stable.
+You probably want to run this tool on some sort of cloud infrastructure if you know your target is large. It takes a long time, and residential internet is generally not as stable.
